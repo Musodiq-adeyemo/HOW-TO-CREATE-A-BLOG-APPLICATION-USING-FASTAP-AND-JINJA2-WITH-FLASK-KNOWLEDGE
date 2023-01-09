@@ -52,7 +52,7 @@ app.include_router(templates.router)
 
 
 templates = Jinja2Templates(directory="BlogPosts/templates")
-app.mount("/static",StaticFiles(directory="Blogposts/static"),name="static")
+app.mount("/static",StaticFiles(directory="BlogPosts/static"),name="static")
 
 @manager.user_loader()
 def load_user(username:str,db:Session=Depends(get_db)):
