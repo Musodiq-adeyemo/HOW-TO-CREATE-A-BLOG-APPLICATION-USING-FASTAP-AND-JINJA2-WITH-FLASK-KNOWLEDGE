@@ -284,8 +284,8 @@ def upload_postimage(request: Request,post_id:int=Form(...),file:UploadFile = Fi
     except:
         return templates.TemplateResponse("upload_postimage.html",{"request":request})
 # about Route
-@app.get("/about",response_class=HTMLResponse,tags=["Template"],current_user=Depends(manager))
-def about(request: Request):
+@app.get("/about",response_class=HTMLResponse,tags=["Template"])
+def about(request: Request,current_user=Depends(manager)):
     current_user = manager.get_current_user
     return templates.TemplateResponse("about.html",{"request":request,"current_user":current_user})
 
